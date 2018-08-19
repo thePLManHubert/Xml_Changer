@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Xml_Changer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        KeyDown="Window_KeyDown">
+
+    <!--  -->
+    <!-- Strefa kontrolek -->
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Pasek górny -->
+        <Grid Grid.Row="0">
+
+            <Menu x:Name="mainMenuBar" DockPanel.Dock="Top" Background="#FFA9D1F4">
+                <MenuItem Header="_Plik">
+                    <MenuItem Header="_Otwórz schemat"/>
+                    <MenuItem Header="_Close"/>
+                    <MenuItem Header="_Save"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+            
+
+
+
+        </Grid>
         
+        <!-- Przyciski i okno tekstowe -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Strefa przycisków -->
+            <StackPanel>
+            
+            </StackPanel>
+        
+            <!-- Strefa tekstu -->
+            <StackPanel>
+            
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </Window>

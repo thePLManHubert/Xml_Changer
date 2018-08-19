@@ -24,5 +24,38 @@ namespace Xml_Changer
         {
             InitializeComponent();
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.SystemKey == Key.LeftAlt)            
+                mainMenuBar.Visibility = Visibility.Visible;
+        }
+
+        protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
+        {
+            if (mainMenuBar.IsVisible && e.Source != mainMenuBar && !IsMenuChildMouseDown(e.Source as FrameworkElement))
+            {
+                mainMenuBar.Visibility = Visibility.Collapsed;
+            }
+            base.OnPreviewMouseDown(e);
+        }
+
+        private bool IsMenuChildMouseDown(FrameworkElement elem)
+        {
+            if (elem == null)
+                return false;
+
+            DependencyObject parent = elem.Parent;
+
+            if (parent == null)
+                return false;
+            else
+            {
+                if (parent == mainMenuBar)
+                    return true;
+
+                return IsMenuChildMouseDown(parent as FrameworkElement);
+            }
+        }
     }
 }
